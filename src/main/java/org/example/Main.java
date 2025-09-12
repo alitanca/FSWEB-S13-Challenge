@@ -1,5 +1,8 @@
 package org.example;
 
+import org.example.enums.Plan;
+
+
 public class Main {
     public static void main(String[] args) {
         uygulamayiCalistir();
@@ -15,19 +18,22 @@ public class Main {
 
         String[] empPlans = new String[3];
         Employee emp = new Employee(101, "Ali Tanca", "ali@example.com", "sifre123", empPlans);
-        emp.addHealthplan(0, hp1.getName());
-        emp.addHealthplan(0, "Yeniden");
-        emp.addHealthplan(1, hp2.getName());
-        emp.addHealthplan(5, "Geçersiz");
+
+
+        emp.addHealthPlan(-1, "Test Sigorta");
+        emp.addHealthPlan(0, hp1.getName());
+        emp.addHealthPlan(0, "Yeniden");
+        emp.addHealthPlan(1, hp2.getName());
+
         System.out.println(emp);
         System.out.println("---------------");
 
         String[] devs = new String[4];
         Company company = new Company(501, "Example Tech A.Ş.", 2_500_000.0, devs);
+        company.addEmployee(-1, "Jane");
         company.addEmployee(0, "Zeynep");
+        company.addEmployee(0, "Ayşe");
         company.addEmployee(1, "Mehmet");
-        company.addEmployee(1, "Ayşe");
-        company.addEmployee(10, "X");
         System.out.println(company);
 
         try {

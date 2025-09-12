@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class Company {
     private int id;
     private String name;
-    private double giro; // 0'dan küçük olamaz
+    private double giro;
     private String[] developerNames;
 
     public Company(int id, String name, double giro, String[] developerNames) {
@@ -16,19 +16,12 @@ public class Company {
     }
 
     public void addEmployee(int index, String name) {
-        if (developerNames == null) {
-            System.out.println("[Company] developerNames dizisi tanımlı değil!");
-            return;
-        }
-        if (index < 0 || index >= developerNames.length) {
-            System.out.println("[Company] Geçersiz index: " + index);
-            return;
-        }
+        if (developerNames == null) return;
+        if (index < 0 || index >= developerNames.length) return;
+
+        // Boşsa ekle; doluysa dokunma
         if (developerNames[index] == null || developerNames[index].isEmpty()) {
             developerNames[index] = name;
-            System.out.println("[Company] '" + name + "' index " + index + " konumuna eklendi.");
-        } else {
-            System.out.println("[Company] Index " + index + " dolu! (mevcut: " + developerNames[index] + ")");
         }
     }
 
@@ -40,12 +33,11 @@ public class Company {
 
     public double getGiro() { return giro; }
     public void setGiro(double giro) {
-        if (giro < 0) {
-            throw new IllegalArgumentException("giro 0'ın altında olamaz!");
-        }
+        if (giro < 0) throw new IllegalArgumentException("giro 0'ın altında olamaz!");
         this.giro = giro;
     }
 
+    // Testin beklediği getter adı
     public String[] getDeveloperNames() { return developerNames; }
     public void setDeveloperNames(String[] developerNames) { this.developerNames = developerNames; }
 
