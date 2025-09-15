@@ -7,7 +7,7 @@ public class Employee {
     private String fullName;
     private String email;
     private String password;
-    private String[] healthPlans; // DİKKAT: camelCase ve çoğul
+    private String[] healthPlans;
 
     public Employee(int id, String fullName, String email, String password, String[] healthPlans) {
         this.id = id;
@@ -17,7 +17,7 @@ public class Employee {
         this.healthPlans = healthPlans;
     }
 
-    // Testin beklediği imza
+
     public void addHealthPlan(int index, String name) {
         if (healthPlans == null) return;
         if (index < 0 || index >= healthPlans.length) return;
@@ -40,7 +40,7 @@ public class Employee {
     public String getPassword() { return password; }
     public void setPassword(String password) { this.password = password; }
 
-    // Testin beklediği getter adı
+
     public String[] getHealthPlans() { return healthPlans; }
     public void setHealthPlans(String[] healthPlans) { this.healthPlans = healthPlans; }
 
